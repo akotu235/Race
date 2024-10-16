@@ -1,73 +1,33 @@
 package io.github.akotu235.race;
-// Race.java
-// Wyscig
 
-class Counter {
-    private int _val;
+import io.github.akotu235.race.counter.Counter;
+import io.github.akotu235.race.counter.CounterFactory;
+import io.github.akotu235.race.histogram.Histogram;
+import io.github.akotu235.race.histogram.HistogramParamsFactory;
 
-    public Counter(int n) {
-        _val = n;
-    }
-
-    public void inc() {
-        _val++;
-    }
-
-    public void dec() {
-        _val--;
-    }
-
-    public int value() {
-        return _val;
-    }
-}
-
-class IThread extends Thread {
-    private final Counter counter;
-
-    IThread(Counter counter) {
-        this.counter = counter;
-    }
-
-    public void run() {
-        for (int i = 0; i < RaceParams.RACE_LENGTH; i++) {
-            counter.inc();
-        }
-    }
-}
-
-class DThread extends Thread {
-    private final Counter counter;
-
-    public DThread(Counter counter) {
-        this.counter = counter;
-    }
-
-    public void run() {
-        for (int i = 0; i < RaceParams.RACE_LENGTH; i++) {
-            counter.dec();
-        }
-    }
-}
+import java.io.IOException;
 
 public class Race {
-    public static void main(String[] args) throws InterruptedException {
-        int numIterations = 100;
-
-        for (int i = 0; i < numIterations; i++) {
-            Counter cnt = new Counter(0);
-
-            IThread iThread = new IThread(cnt);
-            DThread dThread = new DThread(cnt);
-
-            iThread.start();
-            dThread.start();
-
-            iThread.join();
-            dThread.join();
-
-            int finalValue = cnt.value();
-            System.out.println("Iteracja: " + i + ": " + finalValue);
+    public static void main(String[] args) throws InterruptedException, IOException {
+        int counterVersion = 1;
+        if (args.length != 0) {
+            counterVersion = Integer.parseInt(args[0]);
         }
+
+        Histogram histogram = new Histogram(HistogramParamsFactory.createHistogramParams(counterVersion));
+
+        Thread[] threads = new Thread[RaceParams.ITERATIONS];
+
+        for (int i = 0; i < RaceParams.ITERATIONS; i++) {
+            Counter cnt = CounterFactory.createCounter(counterVersion, 0);
+            threads[i] = new RaceThread(cnt, histogram);
+            threads[i].start();
+        }
+
+        for (Thread thread : threads) {
+            thread.join();
+        }
+
+        histogram.print();
     }
 }
