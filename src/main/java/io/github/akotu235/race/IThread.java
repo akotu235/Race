@@ -10,7 +10,7 @@ class IThread extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i < RaceParams.RACE_LENGTH; i++) {
+        for (int i = 0; i < RaceParams.LENGTH; i++) {
             counter.inc();
         }
     }

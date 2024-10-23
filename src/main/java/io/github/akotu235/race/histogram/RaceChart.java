@@ -22,7 +22,7 @@ public class RaceChart extends ApplicationFrame {
 
         // Tworzenie histogramu
         histogram = ChartFactory.createHistogram(
-                "Histogram Wartości Zmiennej Counter po " + RaceParams.ITERATIONS + " Uruchomieniach Pętli",
+                "Histogram Wartości Zmiennej Counter po " + RaceParams.PROCES_COUNT + " Uruchomieniach Pętli",
                 histogramParams.getXAxisName(),
                 "Częstotliwość",
                 dataset,

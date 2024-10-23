@@ -17,8 +17,8 @@ public class HistogramParamsFactory {
             default:
                 return new HistogramParams(
                         "histogramV" + counterVersion,
-                        RaceParams.RACE_LENGTH * 2,
-                        RaceParams.RACE_LENGTH * 2 / 20,
+                        RaceParams.LENGTH * 2,
+                        RaceParams.LENGTH * 2 / 20,
                         1_000_000,
                         "Wartości (mln)"
                 );

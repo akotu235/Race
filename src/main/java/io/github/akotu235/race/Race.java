@@ -16,9 +16,9 @@ public class Race {
 
         Histogram histogram = new Histogram(HistogramParamsFactory.createHistogramParams(counterVersion));
 
-        Thread[] threads = new Thread[RaceParams.ITERATIONS];
+        Thread[] threads = new Thread[RaceParams.PROCES_COUNT];
 
-        for (int i = 0; i < RaceParams.ITERATIONS; i++) {
+        for (int i = 0; i < RaceParams.PROCES_COUNT; i++) {
             Counter cnt = CounterFactory.createCounter(counterVersion, 0);
             threads[i] = new RaceThread(cnt, histogram);
             threads[i].start();
