@@ -22,10 +22,16 @@ public class Race {
             Counter cnt = CounterFactory.createCounter(counterVersion, 0);
             threads[i] = new RaceThread(cnt, histogram);
             threads[i].start();
+
+            if (!RaceParams.EXECUTE_PARALLEL) {
+                threads[i].join();
+            }
         }
 
-        for (Thread thread : threads) {
-            thread.join();
+        if (RaceParams.EXECUTE_PARALLEL) {
+            for (Thread thread : threads) {
+                thread.join();
+            }
         }
 
         histogram.print();
