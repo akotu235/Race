@@ -322,13 +322,13 @@ public class RaceThread extends Thread {
 ## 4. Wyniki
 
 ### Wynik działania programu `Race` z licznikiem `CounterV1`:
-![](./histogramV1.png)
+![](./results/histogramV1.png)
 
 ### Wynik działania programu `Race` z licznikiem `CounterV2`:
-![](./histogramV2.png)
+![](./results/histogramV2.png)
 
 ### Wynik działania programu `Race` z licznikiem `CounterV3`:
-![](./histogramV3.png)
+![](./results/histogramV3.png)
 
 ## 5. Wnioski
 

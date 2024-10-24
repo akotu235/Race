@@ -26,7 +26,11 @@ public class Histogram {
         RaceChart chart = new RaceChart(getHistogramDataset(), histogramParams);
 
         // Zapis wykresu do pliku PNG
-        File file = new File(histogramParams.getName() + ".png");
+        File directory = new File("results");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        File file = new File("results/" + histogramParams.getName() + ".png");
         ChartUtils.saveChartAsPNG(file, chart.getHistogram(), 1000, 300);
 
         //Wyświetlenie wykresu
