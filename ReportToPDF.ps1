@@ -1,11 +1,26 @@
-pandoc.exe report1.md  -o ./../Kotulski-sprawozdanie-lab1.pdf --pdf-engine=xelatex -V geometry:a3paper -V geometry:margin=1in -V pagestyle=empty --highlight-style=tango
-Start-Process ./../Kotulski-sprawozdanie-lab1.pdf
+param (
+    [string]$reportFile,
+    [string]$outputFile = ( [System.IO.Path]::ChangeExtension($reportFile, ".pdf"))
+)
+
+# Sprawdzenie, czy plik raportu istnieje
+if (-Not (Test-Path $reportFile))
+{
+    Write-Host "Plik $reportFile nie istnieje."
+    exit 1
+}
+
+# Generowanie PDF z podanego pliku Markdown
+pandoc.exe $reportFile -o $outputFile --pdf-engine=xelatex -V geometry:a3paper -V geometry:margin=1in -V pagestyle=empty --highlight-style=tango
+
+# Otwieranie wygenerowanego pliku PDF
+Start-Process $outputFile
 
 # SIG # Begin signature block
 # MIIIWAYJKoZIhvcNAQcCoIIISTCCCEUCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUFWyBgruwF5hod959LULXgPrq
-# 0jCgggT6MIIE9jCCAt6gAwIBAgIQYYPyfUBBC6pE/rAfOslXOzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUZ7p5Yqzd2idWIK5HSNBqkFiF
+# CyagggT6MIIE9jCCAt6gAwIBAgIQYYPyfUBBC6pE/rAfOslXOzANBgkqhkiG9w0B
 # AQsFADATMREwDwYDVQQDDAhha290dSBDQTAeFw0yMjA5MjAxOTQ4MDFaFw0zMjA5
 # MjAxOTU4MDFaMBMxETAPBgNVBAMMCGFrb3R1IENBMIICIjANBgkqhkiG9w0BAQEF
 # AAOCAg8AMIICCgKCAgEAvGcae/FCZugTbghxO7Qv9wQKvRvp9/WvJyJci/SIsPr1
@@ -35,16 +50,16 @@ Start-Process ./../Kotulski-sprawozdanie-lab1.pdf
 # ETAPBgNVBAMMCGFrb3R1IENBAhBhg/J9QEELqkT+sB86yVc7MAkGBSsOAwIaBQCg
 # eDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEE
 # AYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJ
-# BDEWBBQyh+TfnDBenCglHVbo8Ao9mHa8iDANBgkqhkiG9w0BAQEFAASCAgBLffHr
-# ZX18JrW3eTuP87dce9FXjKwJxXLCvAR4l76klgagny7DTIjqDS1arnwswlz73Dw+
-# y6o5LRDytOtS5j0B/GhPjBYeQXZ+iRX3YE55WUmbCHg9eKwYAbY3l1yKOBYhR6Kk
-# v7uqDSCPQENbqkWxVno+X6jeQfJ4xTZTp85Vg6nuiqOGxTOvGwM/7+VyRcRG6wSk
-# EO2WkbhMBlZZrbXsBrlE+LO8nCT5DBtdKD0WsKqtLg+xTbiGox60rAtnROfcm4pI
-# 8HX6NR2jWjGaXsCkTJZ1EI5XdgRgmuiNfXSbLvbpPtCe2MqCJE4MPucDQUYqx+zg
-# AuJlqkpWxxfELCG9105JuJKfs4ARwBAWTZOIIbui7U5PcIEhOU+4pBZw9PBHNsGI
-# xuKYFPwhhc1bcV2AU0X/vExqKGihMHL+aPWZZ6eCREBmUhIwScs3AzJPWUV9aM+f
-# rHk4/JUBbzuVKC8+NP8t9wmrW56Lb6xSCvunopBFyjg8wk3pGZbNgCVSuszGdMhO
-# XM8zNn9Qh8JnMMNTxSvvvDHmMRONyfRx7K24cMFQ+p+Uky8qY3jDl1DfQz6DTtof
-# JIYGMAjoSFp1/9DzGAkFEpgk0hWmc4qx+i5SPWU870UPGiMwqtALwhUfiLy+8zmZ
-# gD5NbOf2AhvE/mV9JUzXLvyX6rW+od4u2v3jkw==
+# BDEWBBTSG/pKOlLO6wkcP+LiOaHk8M61ljANBgkqhkiG9w0BAQEFAASCAgCw/ytC
+# YRCbD5r4JY9BrQ8xmMdiMTbdY+qokWZhgajOinRNNfa004m1zqLZZ/7sqo2x/ZSi
+# HR0iLIa+vVQYK2bDfh4IBVVWX7TPn2i0hOIgl2mNlOuL2LFjtr4uG2VnlzDpcVyD
+# 8fwTbfRQFbnU2GuGG2uOvYbMHm6IJ9Ncsnw8pdgYFpqiGN9+goJ6lfQlhyDDM5k+
+# Hh4oPP9eAZc51z11KDeyHcspJ5FSatX64pv84VjVoS/HL2Po6zuoNYt95xmh9+cK
+# v3Giy7FrVxUsDPS4B9fyfZbA7SCcO04ihZmy8wVH5EnTFVxiLBHkargHdBtCw7qk
+# F2TM/ZPq3+cT/5IosE8EtYT1A0ql5FU/IcKDT0ltvGp9G09Pg5pbXYkVibxVktkR
+# YXYYHQIpPWXugVYTqN5M6BfWQx9exjAcLSj03YR1nDPm7WNMLUjG10z9CPhzyLgs
+# Z+dI5OlKcDXwivwLuHN+Fu8H+/wI6SUkYzhsv0XqYQemUtr5L8doOjcPRSZPEhdB
+# XozEHbyJbgzj02O3DtlgQ6CJuaVlTAwoUxLr6LcfsS4MNo+uCswgw2z4J6ZARH4r
+# bor0tCjp0D2aYQQLr30POVyJq5ReJnhDmAi4/vIJbftxM/vwaBz/I7G+Of7BLbTq
+# bLkDqZyBg1hihBR+mpVo3jliOcxbkeuvaIxYDA==
 # SIG # End signature block
