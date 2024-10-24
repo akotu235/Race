@@ -1,11 +1,11 @@
-pandoc.exe report.md  -o ./../Kotulski-sprawozdanie-lab1.pdf --pdf-engine=xelatex -V geometry:a3paper -V geometry:margin=1in -V pagestyle=empty --highlight-style=tango
+pandoc.exe report1.md  -o ./../Kotulski-sprawozdanie-lab1.pdf --pdf-engine=xelatex -V geometry:a3paper -V geometry:margin=1in -V pagestyle=empty --highlight-style=tango
 Start-Process ./../Kotulski-sprawozdanie-lab1.pdf
 
 # SIG # Begin signature block
 # MIIIWAYJKoZIhvcNAQcCoIIISTCCCEUCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUDiTGddKHQ4gSiNXzkVbnwaG/
-# vPugggT6MIIE9jCCAt6gAwIBAgIQYYPyfUBBC6pE/rAfOslXOzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUFWyBgruwF5hod959LULXgPrq
+# 0jCgggT6MIIE9jCCAt6gAwIBAgIQYYPyfUBBC6pE/rAfOslXOzANBgkqhkiG9w0B
 # AQsFADATMREwDwYDVQQDDAhha290dSBDQTAeFw0yMjA5MjAxOTQ4MDFaFw0zMjA5
 # MjAxOTU4MDFaMBMxETAPBgNVBAMMCGFrb3R1IENBMIICIjANBgkqhkiG9w0BAQEF
 # AAOCAg8AMIICCgKCAgEAvGcae/FCZugTbghxO7Qv9wQKvRvp9/WvJyJci/SIsPr1
@@ -35,16 +35,16 @@ Start-Process ./../Kotulski-sprawozdanie-lab1.pdf
 # ETAPBgNVBAMMCGFrb3R1IENBAhBhg/J9QEELqkT+sB86yVc7MAkGBSsOAwIaBQCg
 # eDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEE
 # AYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJ
-# BDEWBBS9F7rI86OwCB/7BFQ125fbnhYTljANBgkqhkiG9w0BAQEFAASCAgAfZB8P
-# r3rk7gtYYWpibwkqG78esGCnuvUjrIjk0GR0Klid8mrifjb7zXQjdL43v7F03JSi
-# 0jDVwmwUAPRQnKfB28jhu+q7P1TG33oVeLCGNHlqExTVH53wISJ865k9JaY4DIrt
-# rj3n79PEXrvkbnT73StpUCTdE9VpvOR7Db5hf10AmOtArld90l4HRiZKbEiaX2DD
-# hGdaGSToYotXrIktFKH4B3v+LT4Js/KDe8n664DdarHLD6lHJur5yTf37rL1cBBE
-# RcV87aUK7do4T39nvUPC5aXcHePiSxgiScSxzVcr7XqvV3n/wTpLi+k2uZI4/r+0
-# d3LgtUssHreuSMRQ0mixI7Lj0Qx8+Cg50QR5WK9gt6iuDz3HMDYZ/dVvLZkQTUYb
-# ByV0JwjBCCNl8X50b8CGSnEIuk2xBYnCGpvevY7r1Fxu86Da+ofr0N1KItQYZBUc
-# pd7DS8Z8GbVUn/KCVtUzGlGgTTH4IWiFbeqD7p8UDnuXde1rgjVa6efoueQtKUeg
-# gZJU+URMOAP1o5AXPwOk92OEza0B+cQ3aPQkBw0/eyt1dzIJoGnXaqKpH+hGbiCR
-# S4wgpkJozG0Mw2oDhRleR+5HcZr2D6ebn7rerpK4u94tccOJW29gwh6GBmag6Dr2
-# vm5fjVZ1IvxVBXDMDno5vlEhIZhRJFjisfRPew==
+# BDEWBBQyh+TfnDBenCglHVbo8Ao9mHa8iDANBgkqhkiG9w0BAQEFAASCAgBLffHr
+# ZX18JrW3eTuP87dce9FXjKwJxXLCvAR4l76klgagny7DTIjqDS1arnwswlz73Dw+
+# y6o5LRDytOtS5j0B/GhPjBYeQXZ+iRX3YE55WUmbCHg9eKwYAbY3l1yKOBYhR6Kk
+# v7uqDSCPQENbqkWxVno+X6jeQfJ4xTZTp85Vg6nuiqOGxTOvGwM/7+VyRcRG6wSk
+# EO2WkbhMBlZZrbXsBrlE+LO8nCT5DBtdKD0WsKqtLg+xTbiGox60rAtnROfcm4pI
+# 8HX6NR2jWjGaXsCkTJZ1EI5XdgRgmuiNfXSbLvbpPtCe2MqCJE4MPucDQUYqx+zg
+# AuJlqkpWxxfELCG9105JuJKfs4ARwBAWTZOIIbui7U5PcIEhOU+4pBZw9PBHNsGI
+# xuKYFPwhhc1bcV2AU0X/vExqKGihMHL+aPWZZ6eCREBmUhIwScs3AzJPWUV9aM+f
+# rHk4/JUBbzuVKC8+NP8t9wmrW56Lb6xSCvunopBFyjg8wk3pGZbNgCVSuszGdMhO
+# XM8zNn9Qh8JnMMNTxSvvvDHmMRONyfRx7K24cMFQ+p+Uky8qY3jDl1DfQz6DTtof
+# JIYGMAjoSFp1/9DzGAkFEpgk0hWmc4qx+i5SPWU870UPGiMwqtALwhUfiLy+8zmZ
+# gD5NbOf2AhvE/mV9JUzXLvyX6rW+od4u2v3jkw==
 # SIG # End signature block

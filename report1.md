@@ -353,3 +353,5 @@ Podsumowując, synchronizacja jest kluczowym elementem w&nbsp;zarządzaniu wspó
 ## 7. Załączniki
 
 1. **Repozytorium kodu źródłowego** – Pełny kod projektu. Dostępne online: <https://github.com/akotu235/Race>
+
+2. **Wersja online sprawozdania** – Bieżąca wersja dokumentu. Dostępne online: <https://github.com/akotu235/Race/blob/master/report1.md>
