@@ -4,7 +4,7 @@ public class CounterV3 implements Counter {
     private int _val;
     private final Clock clock;
     private static final int INC_SLOT = 0;
-    private static final int DEC_SLOT = 1;
+    private static final int DEC_SLOT = 2;
 
     public CounterV3(int n) {
         this._val = n;
@@ -68,7 +68,7 @@ class Clock extends Thread {
             try {
                 Thread.sleep(timeSlice);
                 tickId++;
-                currentSlot = (currentSlot + 1) % 2;
+                currentSlot = (currentSlot + 1) % 4;
             } catch (InterruptedException e) {
                 break;
             }
