@@ -348,3 +348,8 @@ Podsumowując, synchronizacja jest kluczowym elementem w&nbsp;zarządzaniu wspó
 1. **Java Platform, Standard Edition Documentation** - Oracle. Dostępne online: <https://docs.oracle.com/javase/8/docs/>
 
 2. **JFreeChart Developer Guide** - JFreeChart Documentation. Dostępne online: <https://www.jfree.org/jfreechart/>
+
+
+## 7. Załączniki
+
+1. **Repozytorium kodu źródłowego** – Pełny kod projektu. Dostępne online: <https://github.com/akotu235/Race>
