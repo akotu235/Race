@@ -1,2 +1,3 @@
 # Współbieżność w Javie
-### [Laboratorium 1](report.md)
+### [Raport 1](report1.md)
+### [Raport 2](report2.md)
