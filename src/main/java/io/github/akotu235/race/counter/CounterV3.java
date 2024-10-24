@@ -23,7 +23,7 @@ public class CounterV3 implements Counter {
                     break;
                 }
             } else {
-                sleep();
+                Thread.yield();
             }
         }
     }
@@ -39,7 +39,7 @@ public class CounterV3 implements Counter {
                     break;
                 }
             } else {
-                sleep();
+                Thread.yield();
             }
         }
     }
@@ -47,14 +47,6 @@ public class CounterV3 implements Counter {
     @Override
     public int value() {
         return _val;
-    }
-
-    private void sleep() {
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
     }
 }
 

@@ -34,12 +34,13 @@ Do wizualizacji wyników wykorzystano bibliotekę `JFreeChart`, która umożliwi
 
 ## 3. Fragmenty kodu
 
-### Klasa z parametrami wyścigu:
+### Klasa z parametrami:
 
 ```Java
-public class RaceParams{
-    public static final int RACE_LENGTH = 100_000_000;
-    public static final int ITERATIONS = 100;
+public class RaceParams {
+    public static final int LENGTH = 100_000_000;
+    public static final int PROCES_COUNT = 100;
+    public static final boolean EXECUTE_PARALLEL = true;
 }
 ```
 
@@ -68,7 +69,7 @@ class IThread extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i < RaceParams.RACE_LENGTH; i++) {
+        for (int i = 0; i < RaceParams.LENGTH; i++) {
             counter.inc();
         }
     }
@@ -87,7 +88,7 @@ class DThread extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i < RaceParams.RACE_LENGTH; i++) {
+        for (int i = 0; i < RaceParams.LENGTH; i++) {
             counter.dec();
         }
     }
@@ -177,7 +178,7 @@ public class CounterV3 implements Counter {
                     break;
                 }
             } else {
-                sleep();
+                Thread.yield();
             }
         }
     }
@@ -193,7 +194,7 @@ public class CounterV3 implements Counter {
                     break;
                 }
             } else {
-                sleep();
+                Thread.yield();
             }
         }
     }
@@ -201,14 +202,6 @@ public class CounterV3 implements Counter {
     @Override
     public int value() {
         return _val;
-    }
-
-    private void sleep() {
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
     }
 }
 ```
@@ -264,16 +257,22 @@ public class Race {
 
         Histogram histogram = new Histogram(HistogramParamsFactory.createHistogramParams(counterVersion));
 
-        Thread[] threads = new Thread[RaceParams.ITERATIONS];
+        Thread[] threads = new Thread[RaceParams.PROCES_COUNT];
 
-        for (int i = 0; i < RaceParams.ITERATIONS; i++) {
+        for (int i = 0; i < RaceParams.PROCES_COUNT; i++) {
             Counter cnt = CounterFactory.createCounter(counterVersion, 0);
             threads[i] = new RaceThread(cnt, histogram);
             threads[i].start();
+
+            if (!RaceParams.EXECUTE_PARALLEL) {
+                threads[i].join();
+            }
         }
 
-        for (Thread thread : threads) {
-            thread.join();
+        if (RaceParams.EXECUTE_PARALLEL) {
+            for (Thread thread : threads) {
+                thread.join();
+            }
         }
 
         histogram.print();
