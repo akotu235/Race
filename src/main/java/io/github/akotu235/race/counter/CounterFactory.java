@@ -7,6 +7,8 @@ public class CounterFactory {
                 return new CounterV2(initialValue);
             case 3:
                 return new CounterV3(initialValue);
+            case 4:
+                return new CounterV4(initialValue);
             default:
                 return new CounterV1(initialValue);
         }

@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Race(CounterV3)" type="Application" factoryName="Application">
+  <configuration default="false" name="Race(CounterV4)" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="io.github.akotu235.race.Race" />
     <module name="Race" />
-    <option name="PROGRAM_PARAMETERS" value="3" />
+    <option name="PROGRAM_PARAMETERS" value="4" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="io.github.akotu235.race.counter.*" />

@@ -4,7 +4,7 @@
     <module name="Race" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="io.github.akotu235.race.*" />
+        <option name="PATTERN" value="io.github.akotu235.race.counter.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
