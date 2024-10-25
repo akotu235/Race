@@ -9,6 +9,8 @@ public class CounterFactory {
                 return new CounterV3(initialValue);
             case 4:
                 return new CounterV4(initialValue);
+            case 5:
+                return new CounterV5(initialValue);
             default:
                 return new CounterV1(initialValue);
         }

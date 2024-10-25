@@ -8,6 +8,7 @@ public class HistogramParamsFactory {
             case 2:
             case 3:
             case 4:
+            case 5:
                 return new HistogramParams(
                         "histogramV" + counterVersion,
                         5,
