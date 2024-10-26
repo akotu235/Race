@@ -1,6 +1,4 @@
-# Współbieżność w Javie
-
-# Symulacja Warunków Wyścigu
+# Współbieżność w Javie - Symulacja Warunków Wyścigu
 
 ## Przegląd
 
