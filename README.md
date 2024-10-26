@@ -1,6 +1,6 @@
 # Współbieżność w Javie
 
-## Symulacja Warunków Wyścigu
+# Symulacja Warunków Wyścigu
 
 ## Przegląd
 
@@ -11,7 +11,6 @@ Projekt demonstruje problem warunków wyścigu w&nbsp;aplikacjach wielowątkowyc
 ### Wymagania wstępne
 
 - **Java Development Kit (JDK) 1.8**
-- **Maven**
 
 ### Instalacja
 
@@ -27,7 +26,7 @@ Projekt demonstruje problem warunków wyścigu w&nbsp;aplikacjach wielowątkowyc
 
 3. Zbuduj projekt:
     ```bash
-    mvnw clean install
+    .\mvnw clean install
     ```
 
 ### Uruchamianie symulacji
@@ -35,7 +34,7 @@ Projekt demonstruje problem warunków wyścigu w&nbsp;aplikacjach wielowątkowyc
 Uruchom symulację z wybraną wersją licznika jako argumentem:
 
 ```bash
-mvnw exec:java -Dexec.mainClass="io.github.akotu235.race.Race" -Darg.line="3"
+java -jar .\target\Race-jar-with-dependencies.jar 3
 ```
 
 W powyższym przykładzie `CounterV3` reprezentuje wersję licznika używaną w&nbsp;symulacji.
